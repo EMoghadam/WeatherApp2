@@ -13,7 +13,7 @@ class Locations {
 
    getCityweather(String cityname) async {
     Networking networkingcity =
-        Networking("$sitevalue?q=$cityname&appid=$keyapi&units=metric");
+        Networking("$sitevalue?q=$cityname&lang=en&appid=$keyapi&units=metric");
     var weatherdatacity = await networkingcity.getdata();
     return weatherdatacity;
   }
@@ -30,14 +30,16 @@ class Locations {
     print("=========================>>>>>>>>>>>>>>> $longitude + $latitude");
 
     Networking networking = Networking(
-        "$sitevalue?lat=$latitude&lon=$longitude&appid=$keyapi&units=metric");
+        "$sitevalue?lat=$latitude&lon=$longitude&lang=en&appid=$keyapi&units=metric");
 
     var weaderdata = await networking.getdata();
     return weaderdata;
   }
 
   String getWeatherIcon(int condition) {
-    if (condition < 300) {
+    if (condition == 0) {
+      return '🤕';
+    }else if (condition < 300) {
       return '🌩';
     } else if (condition < 400) {
       return '🌧';
