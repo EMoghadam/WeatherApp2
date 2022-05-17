@@ -14,11 +14,13 @@ class Loading extends StatefulWidget {
 }
 
 class _LoadingState extends State<Loading> {
+
   Future<void> getLocationData() async {
     Locations locat = Locations();
     var data = await locat.getLocationData();
     Navigator.push(
         context, MaterialPageRoute(builder: (context) => HomePage(data)));
+    setState(() {});
   }
 
   @override
@@ -40,6 +42,7 @@ class _LoadingState extends State<Loading> {
                   SpinKitFadingCircle(
                     color: Color(0xFffFB700),
                     size: 100,
+
                   ),
                   SizedBox(
                     height: 40,

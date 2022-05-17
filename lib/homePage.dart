@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
-import 'package:intl/intl.dart';
 
 import 'Initialise.dart';
 import 'SetCity.dart';
@@ -35,6 +34,7 @@ class _HomePageState extends State<HomePage> {
 
   getdate() {
     String? month;
+
     switch (tm.month) {
       case 1:
         return "january";
@@ -64,6 +64,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   getday() {
+
     switch (tm.weekday) {
       case 1:
         return "monday";
